@@ -22,6 +22,8 @@ I worked separately into a `taskbar`, a `main`, and a `dock`.
 
 I made the design element by referring to macos a lot.
 
+And for your information, there is a security risk to implement using `fs` module, so we will rework using `localStorage` or other services.
+
 ## Update
 
 There are no updates yet.
