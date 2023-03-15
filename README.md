@@ -16,6 +16,12 @@ I used html5, css3, and javascript on the spot without the planning stage, and u
 
 The modules used in the backend are typically `fs`, `express`.
 
+This operation did not use `canvas`.
+
+I worked separately into a `taskbar`, a `main`, and a `dock`.
+
+I made the design element by referring to macos a lot.
+
 ## Update
 
 There are no updates yet.
