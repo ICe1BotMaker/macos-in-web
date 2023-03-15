@@ -2,6 +2,8 @@
 
 The macos-in-web repository is a medium-sized project where you can experience macos on the website.
 
+The project was created simply with the idea of "enjoying macos on the web."
+
 It will be updated steadily, not neglected.
 
 ## How can I experience it?
