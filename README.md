@@ -10,6 +10,12 @@ Anyone can easily access the site and experience macos just by entering this lin
 
 https://macos.r-e.kr/
 
+## How to make this?
+
+I used html5, css3, and javascript on the spot without the planning stage, and used node.js for the backend.
+
+The modules used in the backend are typically `fs`, `express`.
+
 ## Update
 
 There are no updates yet.
