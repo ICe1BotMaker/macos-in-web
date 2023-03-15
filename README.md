@@ -36,13 +36,13 @@ Example of drag and drop:
 const window = document.querySelector(`#window-01`);
 const container = document.querySelector(`.main`);
 
-const active = false;
-const currentX;
-const currentY;
-const initialX;
-const initialY;
-const xOffset = 0;
-const yOffset = 0;
+let active = false;
+let currentX;
+let currentY;
+let initialX;
+let initialY;
+let xOffset = 0;
+let yOffset = 0;
 
 container.addEventListener(`mousedown`, dragStart, false);
 container.addEventListener(`mouseup`, dragEnd, false);
