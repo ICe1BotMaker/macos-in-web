@@ -8,7 +8,7 @@ It will be updated steadily, not neglected.
 
 Anyone can easily access the site and experience macos just by entering this link.
 
-(https://macos.r-e.kr/)[https://macos.r-e.kr/]
+https://macos.r-e.kr/
 
 ## Update
 
