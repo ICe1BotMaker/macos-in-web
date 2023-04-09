@@ -1,0 +1,683 @@
+/* Universal Selector */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    background: transparent;
+    width: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #2f343a;
+    border-radius: 25px;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: url("/img/bg/macos-background2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0% 50%;
+    overflow: hidden;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+    cursor: default;
+}
+
+section {
+    display: none;
+}
+
+.view {
+    display: block;
+}
+
+
+/* Root Setting */
+:root {
+    --mo-background: hsla(0, 0%, 0%, .1);
+    --mo-box-shadow: #11111180;
+
+    --mo-status-height: 30px;
+
+    --mo-max-zIndex: 5000;
+
+    --mo-blur: blur(250px);
+    
+    --mo-input-box-shadow: rgba(89, 154, 228, .75);
+
+    --mo-button-bg-white: whitesmoke;
+    --mo-button-text-white: rgb(17, 17, 17);
+
+    --mo-button-bg-default: rgb(85, 158, 241);
+    --mo-button-text-default: rgb(255, 255, 255);
+
+    --mo-button-bg-active: rgb(73, 141, 219);
+    --mo-button-text-active: rgb(250, 250, 250);
+
+    --mo-button-bg-disabled: rgb(214, 214, 214);
+    --mo-button-text-disabled: rgb(184, 184, 184);
+    
+    --mo-checkbox-bg-checked: rgb(85, 158, 241);
+    --mo-radio-bg-checked: rgb(85, 158, 241);
+
+    --mo-unselected: rgb(82, 82, 82);
+    --mo-selected: rgb(43, 43, 43);
+
+    --mo-hover: opacity(.9) drop-shadow(0 0 black);
+
+    --mo-primary: rgb(80, 108, 235);
+}
+
+
+/* Root Container */
+.mo-container,
+.mo-root {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Root Context */
+.mo-context {
+    z-index: calc(var(--mo-max-zIndex) + 1);
+    display: none;
+    position: absolute;
+    width: 300px;
+    border-radius: 5px;
+    user-select: none;
+    cursor: default;
+    background: rgba(0, 0, 0, .25);
+    backdrop-filter: var(--mo-blur);
+    box-shadow: 0 0 25px rgba(0, 0, 0, .2);
+    overflow: hidden;
+    padding: 5px 0;
+}
+
+.mo-context .mo-context-items .mo-context-item {
+    padding: 5px 25px;
+    color: white;
+    font-family: 'Mark Pro Regular';
+    font-size: 15px;
+}
+
+.mo-context .mo-context-items .mo-context-item:hover {
+    background: var(--mo-primary);
+}
+
+.mo-context .mo-context-items .line {
+    padding: 5px 0;
+}
+
+.mo-context .mo-context-items .line span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, .2);
+}
+
+.mo-context .mo-context-items .line:hover,
+.mo-context .mo-context-items .disabled:hover {
+    background: transparent !important;
+}
+
+.mo-context .mo-context-items .disabled {
+    color: rgba(255, 255, 255, .5);
+}
+
+
+/* MO Status */
+.mo-status {
+    position: fixed;
+    z-index: var(--mo-max-zIndex);
+    width: 100%;
+    height: var(--mo-status-height);
+    background: var(--mo-background);
+    backdrop-filter: var(--mo-blur);
+}
+
+.mo-status .mo-navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mo-status .mo-navbar,
+.mo-status .mo-navbar .mo-navbar-items {
+    height: var(--mo-status-height);
+}
+
+.mo-status .mo-navbar .mo-navbar-items {
+    height: var(--mo-status-height);
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.mo-status .mo-navbar .mo-navbar-items .svg {
+    padding: 0 5px;
+    margin-right: -5px;
+    margin-top: -4px;
+}
+
+.mo-status .mo-navbar .mo-navbar-items .title span {
+    font-family: 'Mark Pro Medium';
+}
+
+.mo-status .mo-navbar .mo-navbar-items .mo-navbar-item {
+    font-family: 'Mark Pro Regular';
+    height: var(--mo-status-height);
+    font-size: 12.5px;
+    color: white;
+    user-select: none;
+}
+
+.mo-status .mo-navbar .mo-navbar-items .mo-navbar-item:hover {
+    background: rgba(255, 255, 255, .05);
+}
+
+.mo-status .mo-navbar .mo-navbar-items .unhover:hover {
+    background: unset;
+    filter: none;
+}
+
+
+/* MO Dropdown */
+.mo-dropdown-main:hover,
+.mo-dropdown-title:hover ~ .mo-dropdown-main {
+    height: auto;
+}
+
+.mo-dropdown-items:hover,
+.mo-dropdown-main:hover > .mo-dropdown-items,
+.mo-dropdown-title:hover ~ .mo-dropdown-main .mo-dropdown-items,
+.mo-dropdown:hover ~ .mo-dropdown-items {
+    margin-top: 15px;
+}
+
+.mo-dropdown-main {
+    position: absolute;
+    margin-top: -5px;
+    margin-left: -10px;
+    height: 0;
+    transition: .2s;
+    overflow: hidden;
+}
+
+.mo-dropdown-items {
+    margin-top: 5px;
+
+    padding: 5px 0;
+    background: hsla(0, 0%, 0%, .4);
+    backdrop-filter: var(--mo-blur);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: .2s;
+}
+
+.mo-dropdown-title {
+    height: 33px;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.mo-dropdown-items .mo-dropdown-item {
+    padding: 5px 15px;
+    width: 150px;
+}
+
+.mo-dropdown-items .mo-dropdown-item:hover {
+    background: var(--mo-primary);
+}
+
+.mo-dropdown-items .line {
+    padding: 5px 0;
+}
+
+.mo-dropdown-items .line span {
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: rgba(255, 255, 255, .2);
+}
+
+.mo-dropdown-items .line:hover {
+    background: transparent !important;
+}
+
+.mo-dropdown-items .mo-dropdown-item span {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+
+/* MO ROOT */
+.mo-position {
+    width: 100%;
+    height: calc(100% - var(--mo-status-height));
+    transform: translateY(var(--mo-status-height));
+}
+
+
+/* MO Body */
+.mo-main {
+    width: 100%;
+    height: 90%;
+}
+
+
+/* Mo Files */
+.mo-files {
+    position: absolute;
+}
+
+.mo-file {
+    transform: translate3d(25px, 25px, 0);
+    width: 75px;
+    height: 75px;
+    border-radius: 5px;
+    transition: .3s cubic-bezier(.175, .885, .32, 1.275);
+    user-select: none;
+    margin-bottom: 40px;
+    margin-right: 40px;
+}
+
+.mo-file img {
+    width: 100%;
+}
+
+.mo-file span {
+    font-family: 'Mark Pro Regular';
+    font-size: 12.5px;
+    display: block;
+    margin-top: -5px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1.25px 1px black;
+}
+
+.mo-file:active {
+    background: rgba(255, 255, 255, .1);
+    padding: 10px;
+    transform: translate3d(25px, 25px, 0) scale(.9);
+}
+
+.mo-folder-title {
+    font-size: 12.5px;
+}
+
+.mo-folder .mo-file {
+    transform: translate3d(10px, 10px, 0);
+}
+
+
+/* MO Window  */
+.mo-window {
+    background: #202327;
+    border-radius: 10px;
+    overflow: hidden !important;
+    width: 1200px;
+    height: 800px;
+    resize: both;
+    overflow: auto;
+    min-width: 500px;
+    min-height: 500px;
+    position: absolute;
+    box-shadow: 0 0 25px var(--mo-box-shadow);
+}
+
+.mo-window .mo-tool {
+    width: 100%;
+    height: 40px;
+    background: #202327;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 10px;
+    user-select: none;
+}
+
+.mo-window .mo-circles {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.mo-window .mo-circle {
+    padding: 0 4px;
+}
+
+.mo-window .mo-circle > span {
+    display: inline-block;
+    align-items: center;
+    width: 10px;
+    height: 10px;
+    padding: 1px;
+    border-radius: 50%;
+    user-select: none;
+}
+
+.mo-window span > span {
+    display: none;
+}
+
+.mo-window span:hover > span {
+    display: block;
+}
+
+.mo-window span:hover {
+    filter: var(--mo-hover);
+}
+
+.mo-window .mo-red {
+    background-color: #ff605c;
+}
+
+.mo-window .mo-yellow {
+    background-color: #ffbd44;
+}
+
+.mo-window .mo-green {
+    background-color: #00ca4e;
+}
+
+.mo-window .mo-vscode {
+    background: #202327;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: calc(100% - 40px);
+    resize: both;
+    overflow: auto;
+}
+
+.mo-window .mo-safari {
+    background: #202327;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: calc(100% - 40px);
+    resize: both;
+    overflow: auto;
+}
+
+.mo-window .mo-text {
+    background: #202327;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: calc(100% - 40px);
+    resize: both;
+    overflow: auto;
+    color: white;
+    font-family: 'Mark Pro Regular';
+    outline: none;
+    padding: 15px 20px;
+    border: 0;
+}
+
+.mo-window .mo-folder {
+    background: #27292e;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    height: calc(100% - 40px);
+    resize: both;
+    overflow: auto;
+    color: white;
+    font-family: 'Mark Pro Regular';
+    outline: none;
+    border: 0;
+    display: flex;
+}
+
+.mo-window .mo-folder .mo-folder-files {
+    padding: 0 25px;
+    width: 100%;
+    background: #202327;
+}
+
+.mo-window .mo-folder .mo-folder-control {
+    min-width: 200px;
+    padding: 4px 10px;
+    height: 100%;
+}
+
+.mo-window .mo-folder .mo-folder-control .mo-folder-control-items .mo-folder-control-item {
+    padding: 10px 15px;
+    font-size: 12.5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.mo-window .mo-folder .mo-folder-control .mo-folder-control-items .line {
+    padding: 10px 15px;
+    margin-top: -10px;
+    margin-bottom: 0;
+}
+
+.mo-window .mo-folder .mo-folder-control .mo-folder-control-items .active {
+    background: #2e3238;
+}
+
+.mo-window .mo-folder .mo-folder-control .mo-folder-control-items .line span {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #2e3238;
+}
+
+.mo-window .mo-folder .mo-folder-control .mo-folder-control-items .mo-folder-control-item:hover {
+    background: #2e3238;
+}
+
+.mo-window .mo-folder .mo-folder-control .mo-folder-control-items .line:hover {
+    background: unset;
+}
+
+.mo-window .mo-file-name {
+    color: white;
+    font-family: 'Mark Pro Regular';
+}
+
+.mo-window .mo-folder-location {
+    color: white;
+    font-family: 'Mark Pro Regular';
+}
+
+.mo-window .mo-history {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: 'Mark Pro Regular';
+}
+
+.mo-window .mo-history .mo-history-icons {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.mo-window .mo-history .mo-history-icons svg {
+    margin-top: 5px;
+    width: 10px;
+    fill: rgb(214, 214, 214);
+}
+
+.mo-window .mo-history .mo-history-icons svg:last-child {
+    margin-left: 5px;
+}
+
+.mo-window .mo-history .mo-history-icons svg:hover {
+    fill: white;
+}
+
+.mo-window .mo-history .mo-link {
+    margin-left: 15px;
+}
+
+.mo-window .mo-history .mo-link input {
+    margin-top: 2px;
+    padding: 5px 10px;
+    width: 400px;
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+    border: 0;
+    background: hsla(0, 0%, 0%, .2);
+    color: white;
+    font-family: 'Mark Pro Regular';
+}
+
+.mo-window .mo-save,
+.mo-window .mo-plus {
+    margin-right: 5px;
+}
+
+.mo-window .mo-save svg,
+.mo-window .mo-plus svg {
+    margin-top: 5px;
+    width: 10px;
+    fill: rgb(214, 214, 214);
+}
+
+.mo-window .mo-save svg:hover,
+.mo-window .mo-plus svg:hover {
+    fill: white;
+}
+
+
+/* MO Dock */
+.mo-dock {
+    position: fixed;
+    z-index: var(--mo-max-zIndex);
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mo-dock .mo-taskbar {
+    height: 85px;
+    margin: 0 auto;
+    border-radius: 20px;
+    background: var(--mo-background);
+    backdrop-filter: var(--mo-blur);
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item {
+    width: 65px;
+    height: 65px;
+    border-radius: 10px;
+    margin-right: 10px;
+    transition: .3s cubic-bezier(.175, .885, .32, 1.275);
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item img {
+    width: 100%;
+    user-select: none;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item:last-child {
+    margin-right: 0;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item:hover {
+    width: 95px;
+    height: 95px;
+    margin-top: -30px;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item:hover > img {
+    filter: var(--mo-hover);
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item:hover >
+.mo-taskbar-tooltip {
+    opacity: 1;
+    margin-left: 15px;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item:active {
+    width: 75px;
+    height: 75px;
+    margin-top: -10px;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item:active >
+.mo-taskbar-tooltip {
+    margin-left: 5px;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-taskbar-item .mo-taskbar-tooltip {
+    position: absolute;
+    width: 65px;
+    text-align: center;
+    background: var(--mo-background);
+    backdrop-filter: var(--mo-blur);
+    color: white;
+    font-family: 'Mark Pro Regular';
+    font-size: 12.5px;
+    border-radius: 25px;
+    padding: 5px;
+    margin-top: -30px;
+    opacity: 0;
+    user-select: none;
+    transition: .1s;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .mo-active::after {
+    display: block;
+    content: '';
+    width: 2.5px;
+    height: 2.5px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 100%;
+    margin-top: -5px;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .line {
+    width: 0px;
+    padding: 10px 5px;
+    cursor: auto;
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .line span {
+    display: block;
+    height: 100%;
+    width: 1px;
+    background: rgba(255, 255, 255, .1);
+}
+
+.mo-dock .mo-taskbar .mo-taskbar-items .line:hover {
+    width: auto;
+    height: auto;
+    margin-top: 0;
+}

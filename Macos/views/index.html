@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mac</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="shortcut icon" href="/img/icons/finder.png" type="image/x-icon">
+</head>
+<body data-theme="dark">
+    <div class="mo-root">
+        <div class="mo-context">
+            <ul class="mo-context-items">
+                <li class="mo-context-item" aria-label="new_file">New File</li>
+                <li class="mo-context-item line"><span></span></li>
+                <li class="mo-context-item c disabled" aria-label="open_file">Open</li>
+                <li class="mo-context-item line"><span></span></li>
+                <li class="mo-context-item c disabled" aria-label="trash">Move to Trash</li>
+                <li class="mo-context-item line"><span></span></li>
+                <li class="mo-context-item disabled" aria-label="copy_file">Copy</li>
+                <li class="mo-context-item disabled" aria-label="paste_file">Paste</li>
+                <li class="mo-context-item line"><span></span></li>
+                <li class="mo-context-item" aria-label="about">About</li>
+            </ul>
+        </div>
+
+        <div class="mo-container">
+            <section class="mo-status view">
+                <nav class="mo-navbar">
+                    <ul class="mo-navbar-items">
+                        <li class="mo-navbar-item mo-dropdown unhover svg">
+                            <span class="mo-dropdown-title"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-apple" viewBox="0 0 16 16"> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> <path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516.024.034 1.52.087 2.475-1.258.955-1.345.762-2.391.728-2.43zm3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422.212-2.189 1.675-2.789 1.698-2.854.023-.065-.597-.79-1.254-1.157a3.692 3.692 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56.244.729.625 1.924 1.273 2.796.576.984 1.34 1.667 1.659 1.899.319.232 1.219.386 1.843.067.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758.347-.79.505-1.217.473-1.282z"/> </svg></span>
+                        </li>
+
+                        <li class="mo-navbar-item mo-dropdown unhover title">
+                            <span class="mo-dropdown-title" id="app">Finder</span>
+                        </li>
+
+                        <li class="mo-navbar-item mo-dropdown">
+                            <span class="mo-dropdown-title">File</span>
+                            <div class="mo-dropdown-main">
+                                <ul class="mo-dropdown-items">
+                                    <li class="mo-dropdown-item" data-type="new_file">
+                                        <span>New File</span>
+                                    </li>
+                                    <li class="mo-dropdown-item line"><span></span></li>
+                                    <li class="mo-dropdown-item">
+                                        <span>About</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mo-navbar-item mo-dropdown">
+                            <span class="mo-dropdown-title">Edit</span>
+                            <div class="mo-dropdown-main">
+                                <ul class="mo-dropdown-items">
+                                    <li class="mo-dropdown-item" data-type="open_file">
+                                        <span>Open Note</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mo-navbar-item mo-dropdown">
+                            <span class="mo-dropdown-title">View</span>
+                            <div class="mo-dropdown-main">
+                                <ul class="mo-dropdown-items">
+                                    <li class="mo-dropdown-item" data-type="Finder">
+                                        <span>Finder</span>
+                                    </li>
+                                    <li class="mo-dropdown-item" data-type="Safari">
+                                        <span>Safari</span>
+                                    </li>
+                                    <li class="mo-dropdown-item" data-type="Note">
+                                        <span>Note</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mo-navbar-item mo-dropdown">
+                            <span class="mo-dropdown-title">Window</span>
+                            <div class="mo-dropdown-main">
+                                <ul class="mo-dropdown-items">
+                                    <li class="mo-dropdown-item" data-type="Exit">
+                                        <span>Exit</span>
+                                    </li>
+                                    <li class="mo-dropdown-item line"><span></span></li>
+                                    <li class="mo-dropdown-item" data-type="Mini">
+                                        <span>Minimization</span>
+                                    </li>
+                                    <li class="mo-dropdown-item" data-type="Max">
+                                        <span>Maximize</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="mo-navbar-item mo-dropdown">
+                            <span class="mo-dropdown-title">Help</span>
+                            <div class="mo-dropdown-main">
+                                <ul class="mo-dropdown-items">
+                                    <li class="mo-dropdown-item">
+                                        <span>Developer</span>
+                                    </li>
+                                    <li class="mo-dropdown-item">
+                                        <span><a target="_blank" href="https://github.com/ICe1BotMaker/macos-in-web">Github Repository</a></span>
+                                    </li>
+                                    <li class="mo-dropdown-item line"><span></span></li>
+                                    <li class="mo-dropdown-item">
+                                        <span>Help</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <ul class="mo-navbar-items">
+                        <li class="mo-navbar-item mo-dropdown unhover">
+                            <span class="mo-dropdown-title mo-date">Wed 11 Jun 12:00</span>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+
+            <div class="mo-position">
+                <section class="mo-main view">
+                    <div class="mo-files"></div>
+                </section>
+    
+                <section class="mo-dock view">
+                    <div class="mo-taskbar">
+                        <ul class="mo-taskbar-items">
+                            <li class="mo-taskbar-item" aria-label="Finder">
+                                <span class="mo-taskbar-tooltip">Finder</span>
+                                <img data-label_="Finder" draggable="false" src="/img/icons/finder.png" alt="taskbar-img">
+                            </li>
+                            <li class="mo-taskbar-item line"><span></span></li>
+                            <li class="mo-taskbar-item" aria-label="Safari">
+                                <span class="mo-taskbar-tooltip">Safari</span>
+                                <img data-label_="Safari" draggable="false" src="/img/icons/safari.png" alt="taskbar-img">
+                            </li>
+                            <li class="mo-taskbar-item" aria-label="Vscode">
+                                <span class="mo-taskbar-tooltip">Vscode</span>
+                                <img data-label_="Vscode" draggable="false" src="/img/icons/vscode.png" alt="taskbar-img">
+                            </li>
+                            <li class="mo-taskbar-item" aria-label="Note">
+                                <span class="mo-taskbar-tooltip">Note</span>
+                                <img data-label_="Note" draggable="false" src="/img/icons/pen.png" alt="taskbar-img">
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="/index.js" type="module"></script>
+</body>
+</html>
